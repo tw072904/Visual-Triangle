@@ -15,8 +15,8 @@ print("The length of side C of this right triangle is " + str(output) + ".")
 
 plot = input("Type exit to exit the program, or press any other key to see your triangle visually. :")
 
-
-
+num1old = num1
+num2old = num2
 
 num1ratio = num1/(output)
 
@@ -47,9 +47,10 @@ else:
     plt.gca().add_line(line2)
     plt.gca().add_line(line3)
 
-    angle = math.degrees(math.atan(num2/num1))
-    #ax.text((xoffset + (num1 + xoffset))/2 , (yoffset + (num2 + yoffset))/2 , "test", rotation = angle)
-
+    angle = 360 - math.degrees(math.atan(num2/num1))
+    ax.text((xoffset + (num1 + xoffset))/2 , (yoffset + (num2 + yoffset))/2 ,str(output), rotation = angle)
+    ax.text((xoffset + (num1 + xoffset))/2 , (yoffset) , str(float(num1old)))
+    ax.text((xoffset), (yoffset + (num2 + yoffset))/2 , str(float(num2old)))
 
     ax.set(xlim=(0, 100), ylim=(0, 100))
     ax.axes.xaxis.set_visible(False)
